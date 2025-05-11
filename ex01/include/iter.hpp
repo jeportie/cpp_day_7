@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 17:45:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/05/11 18:04:36 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/05/11 20:27:22 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_HPP
-# define MAIN_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
-template <typename T>
+#include <cstddef>
+#include <iostream>
 
-void swap(T a, T b)
+template <typename T, typename F>
+void iter(T* array, size_t len, F f)
 {
-	T temp;
-
-	temp = a;
-	a = b;
-	b = temp;
+	for (size_t i = 0; i < len; i++)
+		f(array[i]);
 }
 
 template <typename T>
+void pElem(const T& elem) { std::cout << elem << std::endl; }
 
-T min(T a, T b)
-{
-	return (a < b ? a : b);
-}
-
-template <typename T>
-
-T max(T a, T b)
-{
-	return (a > b ? a : b);
-}
-
-#endif  // ********************************************************* MAIN_HPP //
+#endif  // ********************************************************* ITER_HPP //
