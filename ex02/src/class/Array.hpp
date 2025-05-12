@@ -13,9 +13,4 @@
 #ifndef ARRAY_TPP
 # define ARRAY_TPP
 
-int main()
-{
-	return 0;
-}
-
 #endif  // ******************************************************** ARRAY_TPP //
