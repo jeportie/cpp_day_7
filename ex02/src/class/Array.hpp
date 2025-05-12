@@ -6,11 +6,20 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:15:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/05/12 15:05:56 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/05/12 16:25:22 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_TPP
 # define ARRAY_TPP
+
+template <typename T>
+class Array
+{
+public:
+	Array( void );
+
+private:
+};
 
 #endif  // ******************************************************** ARRAY_TPP //
