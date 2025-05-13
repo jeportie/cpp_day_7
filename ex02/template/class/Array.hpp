@@ -34,7 +34,8 @@ public:
     T&       operator[](uint index);
     const T& operator[](uint index) const;
 
-    uint getSize(void) const;
+    uint size(void) const;
+    void copyFrom(const Array& src);
 
 private:
     T*   _data;
@@ -64,8 +65,9 @@ Array<T>::Array(uint n)
 
 template<typename T>
 Array<T>::Array(const Array& src)
+: _data(NULL), _size(0)
 {
-    *this = src;
+    copyFrom(src);
 }
 
 template<typename T>
@@ -80,19 +82,11 @@ Array<T>& Array<T>::operator=(const Array& rhs)
     if (this != &rhs)
     {
         delete[] _data;
-        _size = rhs._size;
-        if (_size > 0)
-        {
-            _data = new T[_size]();
-            for (uint i = 0; i < _size; i++)
-                _data[i] = rhs._data[i];
-        }
-        else
-        {
-            _data = NULL;
-        }
+        _data = NULL;
+        _size = 0;
+        copyFrom(rhs);
     }
-    return (*this);
+    return *this;
 }
 
 template<typename T>
@@ -112,9 +106,25 @@ const T& Array<T>::operator[](uint index) const
 }
 
 template<typename T>
-uint Array<T>::getSize(void) const
+uint Array<T>::size(void) const
 {
     return _size;
+}
+
+template<typename T>
+void Array<T>::copyFrom(const Array& src)
+{
+    _size = src._size;
+    if (_size > 0)
+    {
+        _data = new T[_size]();
+        for (unsigned int i = 0; i < _size; ++i)
+            _data[i] = src._data[i];
+    }
+    else
+    {
+        _data = NULL;
+    }
 }
 
 template<typename T>
@@ -122,10 +132,10 @@ std::ostream& operator<<(std::ostream& os, const Array<T>& array)
 {
 	os << "Array :" << std::endl;
     os << "{";
-    for (uint i = 0; i < array.getSize(); i++)
-    {
+    for (uint i = 0; i < array.size(); i++)
+    {g
 		os << array[i];	
-		if (i + 1 < array.getSize())
+		if (i + 1 < array.size())
 			os << ", ";
 	}
     os << "}" << std::endl;

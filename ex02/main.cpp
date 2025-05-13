@@ -40,6 +40,6 @@ int main(void)
     }
     catch (const std::exception &e)
     {
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cout << "Exception Error: " << e.what() << std::endl;
     }
 }
