@@ -11,15 +11,19 @@
 /* ************************************************************************** */
 
 #ifndef ARRAY_TPP
-# define ARRAY_TPP
+#define ARRAY_TPP
 
-template <typename T>
+#include <sys/types.h>
+template<typename T>
 class Array
 {
 public:
-	Array( void );
+    Array(void);
+    Array(uint n);
+
 
 private:
+	T	_element;
 };
 
 #endif  // ******************************************************** ARRAY_TPP //
