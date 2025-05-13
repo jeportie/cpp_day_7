@@ -133,7 +133,7 @@ std::ostream& operator<<(std::ostream& os, const Array<T>& array)
 	os << "Array :" << std::endl;
     os << "{";
     for (uint i = 0; i < array.size(); i++)
-    {g
+    {
 		os << array[i];	
 		if (i + 1 < array.size())
 			os << ", ";
