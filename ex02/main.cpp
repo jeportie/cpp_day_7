@@ -22,6 +22,24 @@ int main(void)
 	}
 	Array<int> testB(testArray);
 	testB[0] = 42;
+	
+	Array<std::string> stringArray(2);
+	stringArray[0] = "Jerome";
+	stringArray[1] = "Portier";
+
+	Array<std::string> stringTwo(stringArray);
+	stringTwo[0] = "Antoine";
+	
 	std::cout << "testArray: "<< testArray << std::endl;
 	std::cout << "testB: "<< testB << std::endl;
+	std::cout << "stringArray: "<< stringArray << std::endl;
+	std::cout << "stringTwo: "<< stringTwo << std::endl;
+    try
+    {
+        std::cout << testArray[10] << std::endl; // Should throw
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 }
