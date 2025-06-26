@@ -15,6 +15,7 @@
 
 int main(void)
 {
+	Array<int> test2Array;
 	Array<int> testArray(10);
 	for (int i = 0; i < 10; i++)
 	{
@@ -30,6 +31,7 @@ int main(void)
 	Array<std::string> stringTwo(stringArray);
 	stringTwo[0] = "Antoine";
 	
+	std::cout << "testArray2: "<< test2Array << std::endl;
 	std::cout << "testArray: "<< testArray << std::endl;
 	std::cout << "testB: "<< testB << std::endl;
 	std::cout << "stringArray: "<< stringArray << std::endl;
